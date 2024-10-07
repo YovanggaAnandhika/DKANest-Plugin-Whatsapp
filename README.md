@@ -26,14 +26,14 @@ import { ModuleService } from './module.service';
 @Module({
   imports: [
     WhatsAppModule.forRoot(
-      `mongodb://${process.env.DKA_DB_MONGO_HOST !== undefined ? process.env.DKA_DB_MONGO_HOST : 'localhost'}`,
+      `<your host>`,
       {
         noDelay: true,
         auth: {
-          username: `${process.env.DKA_DB_MONGO_USERNAME !== undefined ? process.env.DKA_DB_MONGO_USERNAME : 'developer'}`,
-          password: `${process.env.DKA_DB_MONGO_PASSWORD !== undefined ? process.env.DKA_DB_MONGO_PASSWORD : 'Cyberhack2010'}`,
+          username: `<user>`,
+          password: `<pass>`,
         },
-        dbName: `${process.env.DKA_DB_MONGO_DATABASE !== undefined ? process.env.DKA_DB_MONGO_DATABASE : 'whatsapp'}`,
+        dbName: `<db_name>`,
       },
     ),
   ],
