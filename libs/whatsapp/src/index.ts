@@ -1,2 +1,9 @@
-export * from './whats-app.module';
-export * from './whats-app.service';
+import { WhatsAppModule } from './whats-app.module';
+import { WhatsAppService } from './whats-app.service';
+
+const WhatsApp = {
+  Module: WhatsAppModule,
+  Service: WhatsAppService,
+};
+
+export { WhatsApp, WhatsAppModule, WhatsAppService };

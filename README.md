@@ -54,18 +54,18 @@ import { WhatsAppService } from '@dkanest/whatsapp';
 @Injectable()
 export class ModuleService implements OnModuleInit {
   constructor(private readonly WhatsApp: WhatsAppService) {
-    this.WhatsApp.qrcode = (qr) => {
+    this.WhatsApp.register.on('qr', (qr: string) => {
       generate(qr, { small: true });
-    };
+    });
   }
 
   onModuleInit() {
-    this.WhatsApp.onMessage = (message) => {
-      console.log(message.body);
-    };
-    this.WhatsApp.onReady = () => {
-      console.log('engine ready');
-    };
+    this.WhatsApp.register.on('message', (message) => {
+      console.log('from example', message.body);
+    });
+    this.WhatsApp.register.on('ready', () => {
+      console.log('from module:engine ready');
+    });
   }
 }
 ```

@@ -1,19 +1,19 @@
 {
   "name": "@dkanest/whatsapp",
-  "version": "0.0.6",
+  "version": "0.1.6",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": {
     "email": "dka.tech.dev@gmail.com",
-    "name": "YovanggA anandhika"
+    "name": "Yovangga anandhika"
   },
   "private": false,
   "license": "UNLICENSED",
   "scripts": {
-    "clean" : "rimraf dist",
+    "clean": "rimraf dist",
     "compile": "tsc -p tsconfig.build.json",
-    "build" : "yarn run clean && yarn run compile",
+    "build": "yarn run clean && yarn run compile",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
@@ -31,9 +31,11 @@
     "@nestjs/mongoose": "^10.0.10",
     "@nestjs/platform-express": "^10.0.0",
     "mongoose": "^8.7.0",
+    "puppeteer-core": "^23.5.1",
     "qrcode-terminal": "^0.12.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
+    "typed-emitter": "^2.1.0",
     "whatsapp-web.js": "^1.26.0"
   },
   "devDependencies": {
