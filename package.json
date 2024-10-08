@@ -1,6 +1,6 @@
 {
   "name": "@dkanest/whatsapp",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "name": "Yovangga anandhika"
   },
   "private": false,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
     "compile": "tsc -p tsconfig.build.json",
