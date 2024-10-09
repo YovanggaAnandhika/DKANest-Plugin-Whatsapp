@@ -1,19 +1,40 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { WhatsAppService } from './whats-app.service';
 import { MongooseCoreModule } from '@nestjs/mongoose/dist/mongoose-core.module';
-import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
+import { MongooseModule } from '@nestjs/mongoose';
+import { WhatsAppModuleConfig } from './whats-app.type';
+import { merge } from 'lodash';
 
 @Module({})
 export class WhatsAppModule {
-  static forRoot(
-    uri: string,
-    options: MongooseModuleOptions = {},
-  ): DynamicModule {
+  static forRoot(config: WhatsAppModuleConfig): DynamicModule {
+    const defaultConfig: WhatsAppModuleConfig = {
+      DBOptions: {
+        uri: 'mongodb://localhost',
+        options: {
+          noDelay: true,
+        },
+      },
+    };
+
+    const finalConfig = merge(defaultConfig, config);
+
     return {
       global: true,
       module: MongooseModule,
-      imports: [MongooseCoreModule.forRoot(uri, options)],
-      providers: [WhatsAppService],
+      imports: [
+        MongooseCoreModule.forRoot(
+          finalConfig.DBOptions.uri,
+          finalConfig.DBOptions.options,
+        ),
+      ],
+      providers: [
+        {
+          provide: 'CONFIG_WHATSAPP',
+          useValue: finalConfig,
+        },
+        WhatsAppService,
+      ],
       exports: [WhatsAppService],
     };
   }

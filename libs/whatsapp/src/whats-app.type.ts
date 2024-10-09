@@ -28,6 +28,6 @@ export interface WhatsAppModuleConfigDBOptions {
 }
 
 export interface WhatsAppModuleConfig {
-  DBOptions: WhatsAppModuleConfigDBOptions;
+  DBOptions?: WhatsAppModuleConfigDBOptions;
   WAOptions?: WhatAppModuleConfigOptions;
 }
